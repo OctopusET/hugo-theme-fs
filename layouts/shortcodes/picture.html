@@ -1,0 +1,13 @@
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- $width := .Get "width" | default (.Get 1) -}}
+{{- $style := .Get "style" | default (.Get 2 | default "") -}}
+{{- $class := .Get "class" | default (.Get 3 | default "") -}}
+{{- $webp := replaceRE `\.[^.]+$` ".webp" $src -}}
+{{- $img := .Page.Resources.GetMatch $src -}}
+<picture><source srcset="{{ $webp }}" type="image/webp"/>
+{{- if $img -}}
+<img loading="lazy" src="{{ $img.RelPermalink }}"{{ with $class }} class="{{ . }}"{{ end }} width="{{ $img.Width }}" height="{{ $img.Height }}" style="width:{{ $width }}%;height:auto;{{ $style }}"/>
+{{- else -}}
+<img loading="lazy" src="{{ $src }}"{{ with $class }} class="{{ . }}"{{ end }} style="width:{{ $width }}%;{{ $style }}"/>
+{{- end -}}
+</picture>

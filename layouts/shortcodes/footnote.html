@@ -1,0 +1,5 @@
+{{- $count := .Page.Scratch.Get "footnote_count" | default 0 -}}
+{{- $count = add $count 1 -}}
+{{- .Page.Scratch.Set "footnote_count" $count -}}
+{{- .Page.Scratch.SetInMap "footnotes" (printf "%d" $count) (dict "text" (.Get 0) "url" (.Get 1)) -}}
+<a name="back_{{ $count }}" style="text-decoration: none;" href="#footnote_{{ $count }}"><sup>[{{ $count }}]</sup></a>

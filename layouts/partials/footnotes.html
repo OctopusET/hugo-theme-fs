@@ -1,0 +1,22 @@
+{{- $count := .Scratch.Get "footnote_count" | default 0 -}}
+{{- if gt $count 0 -}}
+<style type='text/css'>td.ref { padding-bottom: 0ch; width:0; }</style>
+<div class='heading'>References</div><hr/>
+<p id='paperbox' style='text-align:left;'><table><tbody style='vertical-align: top;'>
+{{- $footnotes := .Scratch.Get "footnotes" -}}
+{{- range $i := seq $count -}}
+{{- $fn := index $footnotes (printf "%d" $i) -}}
+{{- $index := printf "%d" $i -}}
+{{- if and (lt $i 10) (gt $count 9) -}}
+{{- $index = printf " %d" $i -}}
+{{- end -}}
+<tr><td class='ref' style='width:1ch;'><a name="footnote_{{ $i }}"></a><a href="#back_{{ $i }}">^</a></td><td class='ref' style='width:4ch;'>[{{ $index }}]</td><td style='width:100%;text-align:left;' class='ref'>
+{{- if eq $fn.url "" -}}
+{{ $fn.text }}.
+{{- else -}}
+<a href="{{ $fn.url | safeURL }}">{{ $fn.text }}</a>
+{{- end -}}
+</td></tr>
+{{- end -}}
+</tbody></table></p>
+{{- end -}}

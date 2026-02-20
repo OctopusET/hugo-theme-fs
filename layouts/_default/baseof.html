@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  {{ partial "head.html" . }}
+</head>
+  <body><br><center>
+{{ partial "header.html" . }}
+</center><br><br>
+<div style="margin-bottom: 2ch;text-transform: none;">
+{{ with .Date }}{{ if not .IsZero }}{{ .Format "Jan 2, 2006" }}{{ end }}{{ end }}</div>
+<div class='heading'>{{ .Title }}</div><hr/>
+{{ block "main" . }}{{ end }}
+{{ partial "footer.html" . }}
+</body>
+</html>

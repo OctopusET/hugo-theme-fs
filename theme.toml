@@ -1,0 +1,9 @@
+name = "monospace-sanglard"
+license = "MIT"
+licenselink = "https://github.com/OctopusET/monospace-sanglard/blob/master/LICENSE"
+description = "A minimalist monospace blog theme inspired by Fabien Sanglard's website"
+min_version = "0.91.0"
+
+[author]
+  name = "Sungjoon Moon"
+  homepage = "https://seoulsaram.org"
