@@ -1,4 +1,12 @@
 {{ define "main" }}
+<div style="margin-bottom: 2ch;text-transform: none;">
+{{ with .Date }}{{ if not .IsZero }}{{ .Format "Jan 2, 2006" }}{{ end }}{{ end }}</div>
+<div class='heading'>{{ .Title }}</div><hr/>
 {{ .Content }}
 {{ partial "footnotes.html" . }}
+{{ with .GetTerms "tags" }}
+<p style="text-align: left;margin-top: 4ch;">
+Tags: {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>&nbsp;{{ end }}
+</p>
+{{ end }}
 {{ end }}

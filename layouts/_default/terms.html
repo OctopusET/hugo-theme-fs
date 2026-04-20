@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class='heading'>{{ .Title | default "Tags" }}</div><hr/>
+{{ .Content }}
+{{ range .Data.Terms.Alphabetical }}
+<p style="text-align: left;">
+<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a> ({{ .Count }})
+</p>
+{{ end }}
+{{ end }}
