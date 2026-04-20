@@ -5,7 +5,7 @@
 <link>{{ .Site.BaseURL }}</link>
 <description>{{ .Site.Params.description }}</description>
 <language>{{ .Site.LanguageCode }}</language>
-<copyright>Content licensed under CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)</copyright>
+<copyright>Content licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)</copyright>
 <atom:link href="{{ "rss.xml" | absURL }}" rel="self" type="application/rss+xml" />
 {{- range (where .Site.RegularPages "Section" "articles").ByDate.Reverse }}
 <item>
