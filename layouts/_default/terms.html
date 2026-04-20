@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class='heading'>{{ .Title | default "Tags" }}</div><hr/>
+<h1 class="heading">{{ .Title | default "Tags" }}</h1><hr/>
 {{ .Content }}
 {{ range .Data.Terms.Alphabetical }}
 <p style="text-align: left;">

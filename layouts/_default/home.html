@@ -1,10 +1,10 @@
 {{ define "main" }}
-<div class='heading'>{{ .Site.Title }}</div><hr/>
+<h1 class="heading">{{ .Site.Title }}</h1><hr/>
 {{ .Content }}
-<div class='heading'>Articles</div><hr/>
+<h2 class="heading">Articles</h2><hr/>
 <p style="text-align: left;margin-bottom: 1ch;">
 {{ range (where .Site.RegularPages "Section" "articles").ByDate.Reverse }}
-{{ .Date.Format "2006/01/02" }}: <a href="{{ .RelPermalink }}">{{ .Title }}</a><br/><br/>
+<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>: <a href="{{ .RelPermalink }}">{{ .Title }}</a><br/><br/>
 {{ end }}
 </p>
 {{ end }}

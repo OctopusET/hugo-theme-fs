@@ -77,10 +77,12 @@ pre code {
   font-weight: normal;
 }
 
-div.heading {
+.heading {
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 4ch;
+  margin-bottom: 0;
+  font-size: 1em;
 }
 
 /** {
@@ -122,4 +124,32 @@ blockquote div {
   text-transform: none;
   text-align: right;
   width: 100%;
+}
+
+a.footnote-ref::before { content: "["; }
+a.footnote-ref::after { content: "]"; }
+
+.footnotes::before {
+  content: "References";
+  font-weight: bold;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 4ch;
+}
+.footnotes hr { display: none; }
+
+.footnotes ol {
+  list-style: none;
+  counter-reset: fn;
+  padding-left: 0;
+}
+.footnotes ol li {
+  counter-increment: fn;
+  position: relative;
+  padding-left: 3.5ch;
+}
+.footnotes ol li::before {
+  content: "[" counter(fn) "]";
+  position: absolute;
+  left: 0;
 }
