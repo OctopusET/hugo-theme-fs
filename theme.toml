@@ -1,5 +1,5 @@
 name = "hugo-theme-fs"
-license = "MIT"
+license = "Apache-2.0"
 licenselink = "https://github.com/OctopusET/hugo-theme-fs/blob/master/LICENSE"
 description = "A minimalist monospace blog theme inspired by Fabien Sanglard's website"
 min_version = "0.91.0"
