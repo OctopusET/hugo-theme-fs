@@ -149,6 +149,10 @@ blockquote div {
   width: 100%;
 }
 
+a.footnote-ref {
+  text-decoration: none;
+  font-size: 1.3em;
+}
 a.footnote-ref::before { content: "["; }
 a.footnote-ref::after { content: "]"; }
 
