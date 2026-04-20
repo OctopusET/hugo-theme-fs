@@ -1,4 +1,9 @@
-    <nav style="display: inline-block; vertical-align:middle;">
-<a href="/" class="title"><b>{{ .Site.Title }}</b><br>
-</a><hr/><nav style="text-align: justify;display: inline-block; width: 100%; text-align: center;">
-<b>{{ range $i, $e := .Site.Menus.main }}{{ if $i }} &nbsp; {{ end }}<a class="title" href="{{ .URL }}">{{ .Name }}</a>{{ end }}</nav></nav></b>
+<header class="site-header">
+<div class="site-header-inner">
+<a href="/" class="site-title">{{ .Site.Title }}</a>
+<hr>
+<nav class="site-menu">
+{{ range $i, $e := .Site.Menus.main }}{{ if $i }} &nbsp; {{ end }}<a class="title" href="{{ .URL }}">{{ .Name }}</a>{{ end }}
+</nav>
+</div>
+</header>

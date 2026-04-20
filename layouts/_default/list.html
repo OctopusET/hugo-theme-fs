@@ -1,5 +1,5 @@
 {{ define "main" }}
-<h1 class="heading">{{ .Title | default .Site.Title }}</h1><hr/>
+<h1 class="heading">{{ .Title | default .Site.Title }}</h1>
 {{ .Content }}
 {{ range .RegularPages.ByDate.Reverse }}
 <p style="text-align: left;">

@@ -49,6 +49,11 @@ p {
   margin-top: 0px;
   text-align: justify;
 }
+
+ul, ol {
+  padding-left: 3ch;
+  margin-left: 0;
+}
 sup {
   vertical-align: 0.3em;
   font-size: 0.65em;
@@ -81,8 +86,26 @@ pre code {
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 4ch;
-  margin-bottom: 0;
+  margin-bottom: 1.5ch;
   font-size: 1em;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.3ch;
+}
+
+.site-header {
+  text-align: center;
+}
+.site-header-inner {
+  display: inline-block;
+}
+.site-title {
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+}
+.site-menu {
+  display: block;
+  font-weight: bold;
 }
 
 /** {
@@ -129,15 +152,6 @@ blockquote div {
 a.footnote-ref::before { content: "["; }
 a.footnote-ref::after { content: "]"; }
 
-.footnotes::before {
-  content: "References";
-  font-weight: bold;
-  text-transform: uppercase;
-  display: block;
-  margin-top: 4ch;
-}
-.footnotes hr { display: none; }
-
 .footnotes ol {
   list-style: none;
   counter-reset: fn;
@@ -146,10 +160,17 @@ a.footnote-ref::after { content: "]"; }
 .footnotes ol li {
   counter-increment: fn;
   position: relative;
-  padding-left: 3.5ch;
+  padding-left: 5ch;
+}
+.footnotes a.footnote-backlink {
+  position: absolute;
+  left: 0;
 }
 .footnotes ol li::before {
   content: "[" counter(fn) "]";
   position: absolute;
-  left: 0;
+  left: 1.5ch;
+}
+.footnotes ol li p {
+  margin: 0;
 }

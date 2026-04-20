@@ -1,0 +1,11 @@
+{{- $src := .Get "src" | default (.Get 0) -}}
+{{- $width := .Get "width" | default (.Get 1 | default "100") -}}
+{{- $video := .Page.Resources.GetMatch $src -}}
+<video controls preload="metadata" playsinline style="width:{{ $width }}%;height:auto;">
+{{- if $video -}}
+<source src="{{ $video.RelPermalink }}" type="{{ $video.MediaType.Type }}">
+{{- else -}}
+<source src="{{ $src }}">
+{{- end -}}
+Your browser does not support the video tag.
+</video>
