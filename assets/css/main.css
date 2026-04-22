@@ -1,32 +1,18 @@
 * {
-   font-size: 16px;
-   font-family: MonoplexKR-Regular;
-   /* font-family: 'DejaVu Sans Mono', 'D2 Coding', monospace; */
-}
-
-/*
-    @font-face {
-        font-family: 'D2 Coding';
-        src: url('fonts/D2 Coding.woff2') format('woff2');
-        font-weight: 400;
-        font-style: normal;
-    }
-*/
-html {
-   font-size: 16px;
-   font-family: MonoplexKR-Regular;
+  font-size: 16px;
+  font-family: MonoplexKR-Regular, monospace;
 }
 
 @font-face {
-    font-family: 'MonoplexKR-Regular';
-    src: url('/fonts/MonoplexKR-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: 'MonoplexKR-Regular';
+  src: url('/fonts/MonoplexKR-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 html {
-  max-width: 900px;  /* For Desktop PC (see @media for Tablets/Phones) */
+  max-width: 900px;
   padding-left: 2%;
   padding-right: 3%;
   margin: 0 auto;
@@ -36,13 +22,6 @@ html {
 a {
   color: black;
   text-decoration: underline;
-}
-
-nav {
-}
-
-img {
-  border: none;
 }
 
 p {
@@ -58,6 +37,7 @@ ul, ol {
 ul {
   list-style-type: "- ";
 }
+
 sup {
   vertical-align: 0.3em;
   font-size: 0.65em;
@@ -86,18 +66,67 @@ pre code {
   font-weight: normal;
 }
 
+table {
+  border-collapse: collapse;
+  margin: 1ch 0;
+}
+thead { display: none; }
+td {
+  border: none;
+  padding: 0.1em 1ch 0.1em 0;
+  vertical-align: top;
+}
+
+blockquote {
+  background-color: #f6f8fa;
+  border: dashed 1px grey;
+  font-style: italic;
+  text-align: justify;
+  padding: 2ch 1ch;
+  margin: 0 0 2ch 0;
+}
+
 .heading {
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 4ch;
   margin-bottom: 1.5ch;
   font-size: 1em;
+}
+
+h1.heading {
+  font-size: 1.2em;
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.5ch;
+}
+
+h2.heading {
   border-bottom: 1px solid #000;
   padding-bottom: 0.3ch;
 }
 
+h3.heading {
+  display: table;
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.3ch;
+}
+
+h4.heading {
+  text-transform: none;
+  margin-top: 3ch;
+  margin-bottom: 0.5ch;
+}
+
+h5.heading, h6.heading {
+  text-transform: none;
+  margin-top: 2ch;
+  margin-bottom: 0.3ch;
+  font-style: italic;
+}
+
 .site-header {
   text-align: center;
+  margin: 1em 0 2em;
 }
 .site-header-inner {
   display: inline-block;
@@ -112,15 +141,6 @@ pre code {
   font-weight: bold;
 }
 
-/** {
-  font-size: 16px;
-}*/
-@media (max-width: 500px) { /* For small screen decices */
-  * {
-    font-size: 12px;
-  }
-}
-
 .title {
   text-decoration: none;
 }
@@ -129,28 +149,6 @@ img.pixel, canvas.pixel {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
-}
-
-blockquote {
-  background-color: #f6f8fa;
-  border: dashed 1px grey;
-  width: 97.5%;
-  font-style: italic;
-  text-align: justify;
-
-  padding: 1ch;
-  padding-top: 2ch;
-  padding-bottom: 2ch;
-
-  margin: 0ch;
-  margin-bottom: 2ch;
-  margin-top: 0ch;
-}
-
-blockquote div {
-  text-transform: none;
-  text-align: right;
-  width: 100%;
 }
 
 a.footnote-ref {
@@ -181,4 +179,49 @@ a.footnote-ref::after { content: "]"; }
 }
 .footnotes ol li p {
   margin: 0;
+}
+
+.toc {
+  margin: 2ch 0 3ch;
+  padding: 0.5ch 2ch;
+  border-left: 3px solid #888;
+}
+.toc summary {
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.toc ul {
+  list-style-type: none;
+  padding-left: 2ch;
+  margin-top: 0.5ch;
+  margin-bottom: 0;
+}
+.toc > ul {
+  margin-top: 1ch;
+}
+
+.breadcrumb {
+  font-size: 0.85em;
+  margin-bottom: 1ch;
+  color: #555;
+}
+.breadcrumb a {
+  color: #555;
+}
+
+.article-footer {
+  margin-top: 4ch;
+  padding-top: 1ch;
+  border-top: 1px dashed #888;
+  font-size: 0.9em;
+}
+.article-footer p {
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  * {
+    font-size: 12px;
+  }
 }

@@ -2,7 +2,23 @@
 <article>
 <div style="margin-bottom: 2ch;text-transform: none;">
 {{ with .Date }}{{ if not .IsZero }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "Jan 2, 2006" }}</time>{{ end }}{{ end }}</div>
+{{ if gt (len .Ancestors) 1 }}
+{{- $ancestors := .Ancestors.Reverse -}}
+{{- $last := sub (len $ancestors) 1 -}}
+<nav class="breadcrumb">
+{{- range $i, $p := $ancestors -}}
+<a href="{{ $p.RelPermalink }}">{{ $p.LinkTitle | default "Home" }}</a>
+{{- if lt $i $last }} / {{ end -}}
+{{- end -}}
+</nav>
+{{ end }}
 <h1 class="heading">{{ .Title }}</h1>
+{{ if .Params.toc }}
+<details class="toc">
+<summary>Contents</summary>
+{{ .TableOfContents }}
+</details>
+{{ end }}
 {{ $c := .Content }}
 {{ $c = replaceRE `<div class="footnotes" role="doc-endnotes">\s*<hr>` `<div class="footnotes" role="doc-endnotes"><h2 class="heading">References</h2>` $c }}
 {{ $c = replaceRE `<li id="fn:([0-9]+)">\s*<p>` `<li id="fn:${1}"><a href="#fnref:${1}" class="footnote-backlink">^</a><p>` $c }}
@@ -12,6 +28,9 @@
 <p style="text-align: left;margin-top: 4ch;">
 Tags: {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>&nbsp;{{ end }}
 </p>
+{{ end }}
+{{ if eq .Section "articles" }}
+{{ partial "article-footer.html" . }}
 {{ end }}
 </article>
 {{ end }}
