@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1 class="heading">{{ .Title | default .Site.Title }}</h1>
 {{ .Content }}
-{{ range .RegularPages.ByDate.Reverse }}
+{{ range .RegularPagesRecursive.ByDate.Reverse }}
 <p style="text-align: left;">
 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>: <a href="{{ .RelPermalink }}">{{ .Title }}</a>
 </p>
